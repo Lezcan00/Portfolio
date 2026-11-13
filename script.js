@@ -102,21 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const formStatus = document.getElementById('formStatus');
 
     if (contactForm && formStatus) {
-        contactForm.addEventListener('submit', function(e) {
-            // Show success message (Netlify will handle actual submission)
-            setTimeout(() => {
-                formStatus.textContent = '¡Mensaje enviado correctamente! Gracias por contactarme.';
-                formStatus.className = 'form-status success';
-                formStatus.style.display = 'block';
-
-                // Reset form
-                contactForm.reset();
-
-                // Hide status after 5 seconds
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                }, 5000);
-            }, 100);
+        contactForm.addEventListener('submit', function() {
+            // Show success message without interfering with Netlify's native form submission
+            formStatus.textContent = '¡Mensaje enviado correctamente! Gracias por contactarme.';
+            formStatus.className = 'form-status success';
+            formStatus.style.display = 'block';
         });
     }
 
